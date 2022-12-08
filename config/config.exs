@@ -18,7 +18,8 @@ config :mxgrn, MxgrnWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Mxgrn.PubSub,
-  live_view: [signing_salt: "/H2l1M1K"]
+  live_view: [signing_salt: "/H2l1M1K"],
+  adapter: Bandit.PhoenixAdapter
 
 # Configures the mailer
 #
