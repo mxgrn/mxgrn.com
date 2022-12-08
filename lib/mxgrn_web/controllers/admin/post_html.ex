@@ -1,0 +1,5 @@
+defmodule MxgrnWeb.Admin.PostHTML do
+  use MxgrnWeb, :html
+
+  embed_templates "post_html/*"
+end

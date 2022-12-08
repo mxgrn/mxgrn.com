@@ -1,5 +1,6 @@
 defmodule MxgrnWeb.Router do
   use MxgrnWeb, :router
+  import MxgrnWeb.Auth
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -9,6 +10,7 @@ defmodule MxgrnWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug MxgrnWeb.DarkMode
+    plug :fetch_current_user
   end
 
   pipeline :api do
@@ -20,6 +22,21 @@ defmodule MxgrnWeb.Router do
 
     resources "/pages", PageController, only: [:show]
     get "/", PageController, :root
+
+    resources "/blog", PostController
+  end
+
+  scope "/", MxgrnWeb do
+    pipe_through [:browser]
+
+    get "/login", SessionController, :create
+    # No "/logout" because BasicAuth doesn't support "signing out". Close the browser instead.
+  end
+
+  scope "/admin", MxgrnWeb.Admin do
+    pipe_through [:browser, :require_authenticated_user]
+
+    resources "/posts", PostController, except: [:show]
   end
 
   # Other scopes may use custom stacks.

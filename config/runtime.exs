@@ -63,6 +63,10 @@ if config_env() == :prod do
     ],
     secret_key_base: secret_key_base
 
+  config :mxgrn, :basic_auth,
+    username: System.get_env("BASIC_AUTH_USERNAME"),
+    password: System.get_env("BASIC_AUTH_PASSWORD")
+
   # ## SSL Support
   #
   # To get SSL working, you will need to add the `https` key

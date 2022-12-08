@@ -51,6 +51,7 @@ defmodule MxgrnWeb do
 
       import Plug.Conn
       import MxgrnWeb.Gettext
+      import MxgrnWeb.Auth
 
       unquote(verified_routes())
     end
@@ -93,6 +94,7 @@ defmodule MxgrnWeb do
       # Core UI components and translation
       import MxgrnWeb.CoreComponents
       import MxgrnWeb.Gettext
+      import MxgrnWeb.Auth
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS

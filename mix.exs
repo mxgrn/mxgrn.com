@@ -50,7 +50,9 @@ defmodule Mxgrn.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
-      {:bandit, ">= 0.6.2"}
+      {:bandit, ">= 0.6.2"},
+      {:earmark, "~> 1.4.34"},
+      {:ex_machina, "~> 2.7", only: :test}
     ]
   end
 

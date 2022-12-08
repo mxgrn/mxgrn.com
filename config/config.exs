@@ -21,6 +21,8 @@ config :mxgrn, MxgrnWeb.Endpoint,
   live_view: [signing_salt: "/H2l1M1K"],
   adapter: Bandit.PhoenixAdapter
 
+config :mxgrn, :basic_auth, username: "mxgrn", password: "secret"
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
@@ -59,6 +61,8 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+config :mxgrn, Mxgrn.Repo, migration_timestamps: [type: :utc_datetime_usec]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

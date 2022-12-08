@@ -16,6 +16,6 @@ defmodule MxgrnWeb.PageController do
   end
 
   def root(conn, _params) do
-    redirect(conn, to: ~p"/pages/about")
+    redirect(conn, to: ~p"/blog")
   end
 end
