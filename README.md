@@ -1,5 +1,9 @@
 # mxgrn.com
 
+Based on https://spotlight.tailwindui.com/
+
+## How to run locally
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
