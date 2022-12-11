@@ -1,8 +1,7 @@
 defmodule MxgrnWeb.SessionController do
   use MxgrnWeb, :controller
-  import Plug.BasicAuth
 
-  plug :basic_auth, Application.compile_env(:mxgrn, :basic_auth)
+  plug :basic_auth
 
   def create(conn, _params) do
     conn
@@ -11,4 +10,7 @@ defmodule MxgrnWeb.SessionController do
   end
 
   # No "delete" action because BasicAuth doesn't support "signing out". Close the browser instead.
+  defp basic_auth(conn, _opts) do
+    Plug.BasicAuth.basic_auth(conn, Application.get_env(:mxgrn, :basic_auth))
+  end
 end

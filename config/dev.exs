@@ -29,6 +29,8 @@ config :mxgrn, MxgrnWeb.Endpoint,
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
+config :mxgrn, :basic_auth, username: "mxgrn", password: "secret"
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

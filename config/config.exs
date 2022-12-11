@@ -21,8 +21,6 @@ config :mxgrn, MxgrnWeb.Endpoint,
   live_view: [signing_salt: "/H2l1M1K"],
   adapter: Bandit.PhoenixAdapter
 
-config :mxgrn, :basic_auth, username: "mxgrn", password: "secret"
-
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
