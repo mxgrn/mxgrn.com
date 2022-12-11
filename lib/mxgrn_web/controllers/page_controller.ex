@@ -5,7 +5,7 @@ defmodule MxgrnWeb.PageController do
   def show(conn, %{"id" => page_id}) do
     page = String.to_atom(page_id)
 
-    if page in Pages.list() do
+    if page in (Pages.list() |> Keyword.keys()) do
       render(conn, page,
         current_menu_item: page,
         page_title: page_id
