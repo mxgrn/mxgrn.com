@@ -10,6 +10,6 @@ defmodule MxgrnWeb.PostController do
 
   def show(conn, %{"id" => slug}) do
     post = Posts.get_by_slug!(slug)
-    render(conn, post: post, current_menu_item: :blog)
+    render(conn, post: post, current_menu_item: :blog, page_title: post.title)
   end
 end
