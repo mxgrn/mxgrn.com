@@ -16,7 +16,7 @@
       </time>
     </header>
     <div class="mt-8 prose dark:prose-invert">
-      <%= raw(Earmark.as_html!(@post.body)) %>
+      <%= raw(Earmark.as_html!(@post.body, escape: false)) %>
     </div>
   </article>
 
