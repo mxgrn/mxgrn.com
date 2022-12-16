@@ -6,7 +6,7 @@
       </h1>
 
       <time
-        datetime="2022-09-02"
+        datetime={@post.published_at}
         class="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
       >
         <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
@@ -16,6 +16,7 @@
       </time>
     </header>
     <div class="mt-8 prose dark:prose-invert">
+      <em :if={DateTime.compare(@post.published_at, DateTime.utc_now()) == :gt}>Draft</em>
       <%= raw(Earmark.as_html!(@post.body, escape: false)) %>
     </div>
   </article>

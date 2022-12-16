@@ -11,7 +11,7 @@
       field={{f, :published_at}}
       type="datetime-local"
       label="published_at"
-      value={DateTime.utc_now() |> DateTime.truncate(:second) |> DateTime.to_naive()}
+      value={f.data.published_at |> DateTime.truncate(:second) |> DateTime.to_naive()}
     />
     <:actions>
       <.button>Save Post</.button>

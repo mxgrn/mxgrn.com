@@ -25,11 +25,17 @@ defmodule Mxgrn.Blog.Posts do
 
   @doc """
   List posts ordered by published_at desc, with published_at being in the past.
+  If :editor option is provided, all posts are returned.
   """
-  def list() do
-    from(p in Post,
-      where: p.published_at <= ^DateTime.utc_now(),
-      order_by: [desc: p.published_at])
-    |> Repo.all()
+  def list(opts \\ []) do
+    query =
+      from p in Post,
+        order_by: [desc: p.published_at]
+
+    if opts[:editor] do
+      Repo.all(query)
+    else
+      Repo.all(from p in query, where: p.published_at <= ^DateTime.utc_now())
+    end
   end
 end

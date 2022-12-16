@@ -4,7 +4,7 @@ defmodule MxgrnWeb.PostController do
   alias Mxgrn.Blog.Posts
 
   def index(conn, _params) do
-    posts = Posts.list()
+    posts = Posts.list(editor: editor?(conn))
     render(conn, posts: posts, current_menu_item: :blog)
   end
 
