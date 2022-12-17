@@ -10,6 +10,7 @@ defmodule MxgrnWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug MxgrnWeb.DarkMode
+    plug MxgrnWeb.DonnationTip
     plug :fetch_current_user
   end
 
