@@ -5,7 +5,7 @@ defmodule MxgrnWeb.PostController do
 
   def index(conn, _params) do
     posts = Posts.list(editor: editor?(conn))
-    render(conn, posts: posts, current_menu_item: :blog)
+    render(conn, posts: posts, current_menu_item: :blog, page_title: "Blog")
   end
 
   def show(conn, %{"id" => slug}) do
