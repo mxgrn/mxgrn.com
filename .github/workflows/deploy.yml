@@ -15,7 +15,7 @@ jobs:
         env: [prod]
         os: [ubuntu-latest]
         otp: [25.2]
-        elixir: [1.14.0]
+        elixir: [1.14.2]
         # host port that will be mapped to Docker's 4000
         port: [8060]
         host: [46.101.106.59]
