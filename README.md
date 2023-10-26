@@ -1,4 +1,4 @@
-# mxgrn.com
+# Source code for mxgrn.com
 
 Based on https://spotlight.tailwindui.com/
 
