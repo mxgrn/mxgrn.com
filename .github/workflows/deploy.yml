@@ -14,8 +14,6 @@ jobs:
         app: [mxgrn]
         env: [prod]
         os: [ubuntu-latest]
-        otp: [25.2]
-        elixir: [1.14.2]
         # host port that will be mapped to Docker's 4000
         port: [8060]
         host: [5.75.226.35]
@@ -26,9 +24,6 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-        # with:
-        #   platform: linux/arm64
-        #   platforms: linux/arm64
 
       - name: Log into GHCR
         run: echo "${{secrets.GITHUB_TOKEN}}" | docker login https://ghcr.io -u ${{github.actor}} --password-stdin
@@ -40,8 +35,6 @@ jobs:
           tags: ghcr.io/mxgrn/${{matrix.app}}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          # platform: linux/arm64
-          # platforms: linux/arm64
 
       - name: Pull image on host, restart, run migrations
         uses: appleboy/ssh-action@master
